@@ -20,6 +20,6 @@ Retrieve campaigns on DoSomething.org
 Rough Breakdown of Tasks: 
 
 
-Dean, Courtney, Cherronda= Focus on Frontend tasks
+Dean, Courtney, Charronda= Focus on Frontend tasks
 
 Denise, Desmon= Backend, APIs
