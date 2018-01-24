@@ -1,0 +1,530 @@
+/*RESET CSS BEGIN*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+/*RESET CSS END*/
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE MENU START */
+
+
+
+
+
+
+
+
+
+
+/* NAVIGATION BAR + HEADER STYLE START */
+header {
+  background: transparent;
+  width: 100%;
+  position: relative;
+  background-image:url('assets/images/helpingothers.jpg');
+}
+
+
+
+.nav-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 7px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav.nav-wrapper ul li {
+  display: inline-block;
+  padding: 0 10px;
+  margin-bottom: 0;
+}
+
+nav.nav-wrapper ul li a {
+  font-size: 17px;
+  line-height: 22px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+nav.nav-wrapper ul li a:hover {
+  border-bottom: 1px solid #ffffff;
+}
+
+header .logo img {
+  max-width: 100px;
+}
+
+
+
+
+
+
+/* PARALLAX PAGE STYLES START */
+.cover-main {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('assets/images/helpingothers.jpg') right bottom;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/images/helpingothers.jpg') right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+}
+
+ul#scene li.name {
+    text-align: center;
+    font-size: 40px;
+    line-height: 45px;
+    text-transform: uppercase;
+    color: white;
+    width: 100%;
+}
+
+ul#scene li.title {
+    text-align: center;
+    font-size: 30px;
+    line-height: 35px;
+    color: white;
+    width: 100%;
+    margin-top: 60px;
+}
+
+ul#scene {
+  margin-top: 100px;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 150px;
+}
+
+
+.contact-btn {
+  margin: 0 auto;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+
+.contact-btn:hover {
+  background: white;
+  color: black;
+}
+
+.contact-btn {
+  margin-left: 30px;
+}
+/* PARALLAX PAGE STYLES END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Core Styles */
+
+body {
+  margin: 0;
+  font-family: Oswald, sans-serif;
+  background: #eaeaea;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 1em 0;
+}
+
+p {
+  margin: 0;
+  padding: 1em 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 1px solid #666;
+  margin: .5em 0;
+}
+
+.btn:hover {
+  background: #eaeaea;
+  color: #333;
+}
+
+
+/* Header Showcase */
+
+#showcase {
+  min-height: 200px;
+  color: #fff;
+  background: #eaeaea;
+  text-align: center;
+}
+
+#showcase .bg-image {
+  position: absolute;
+  background: url('..assets//images/helpingothers.jpg') right bottom;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+#showcase h1 {
+  padding-top: 100px;
+  padding-bottom: 0;
+}
+
+#showcase .content-wrap
+#section-a .content-wrap {
+  padding: 0 1.5em;
+}
+
+
+
+/* Section A */
+
+#section-a {
+  background: #b30000;
+  color: #fff;
+  padding: 2em;
+}
+
+
+
+/* Section B */
+
+#section-b {
+  padding: 2em 1em 1em;
+}
+
+#section-b ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+#section-b li {
+  margin-bottom: 1em;
+  background: #fff;
+  color: #333;
+}
+
+.card-content {
+  padding: 1.5em;
+}
+
+
+
+/* Section C */
+
+#section-c {
+  background: #eaeaea;
+  color: #333;
+  padding: 2em;
+}
+
+
+/* Section D */
+
+#section-d .box {
+  padding: 2em;
+  color: #fff;
+}
+
+#section-d .box:first-child {
+  background: #00578a;
+}
+
+
+
+/* Footer */
+
+#main-footer {
+  padding: 2em;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+#main-footer a {
+  color: #2690d4;
+  text-decoration: none;
+}
+
+
+/* Media Queries */
+
+@media(min-width: 700px) {
+  .grid {
+    dislay: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em))
+  }
+
+  #section-a .content-text p {
+    padding-top: 0;
+  }
+
+  .content-wrap, 
+  #section-b ul {
+    grid-column: 2/4;
+  }
+
+  .box, #main-footer div {
+    grid-colun: span 2;
+  }
+
+  #section-b ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #section-b li {
+    width: 31%;
+  }
+}
+
+
+
+
+
+/* SLIDER START */
+
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+.slider-div h2 {
+  margin-bottom: 0;
+}
+
+.slider {
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.slide {
+  max-height: 300px;
+  padding: 15px;
+}
+
+.slick-prev,
+.slick-next {
+  background: #4C5C6C;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  right: 0;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+background: #4C5C6C;
+}
+/* SLIDER END */
+
+
+
+
+
+
