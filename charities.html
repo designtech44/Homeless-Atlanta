@@ -1,1 +1,104 @@
 
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+    <title>Charities- Help for the Homeless</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-euiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Link Reset & CSS Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maÏxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    </head>
+
+
+<body>
+
+
+  <!-- Navigation bar -->
+  <ul class="nav">
+
+    <div class="logo">
+      <img src="assets/images/logo.png">
+    </div>
+
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="charities.html">Charities</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="banner">
+    <img class="banner-image" alt="banner image" src="assets/images/caring.jpg">
+  </div>
+
+
+
+
+
+  <!-- Charity Search HTML Start Here -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><i class="fa  fa-list-alt"></i>Search for charities to help the homeless in your area.</strong></h3>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="zip-input">Enter Zip Code</label>
+              <input type="text" id="zip-input">
+            </div>
+          </form>
+          <button type="button" class="btn btn-primary">search</button>
+        </div>
+      </div>
+    </div>
+    <h1 id="event-view"></h1>
+  <!-- This row will handle all of the retrieved articles -->
+  <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-primary">
+
+        <!-- Panel Heading for the retrieved articles box -->
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong><i class="fa fa-table"></i>List of Charities</strong></h3>
+        </div>
+      </div>
+    </div>
+        <!-- This main panel will hold each of the resulting articles -->
+        <div class="panel-body" id="charity-list">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <footer id="main-footer" class="grid">
+        <div>&copy; 2018 The Helping Hand</div>
+    </footer>
+
+        <script src="assets/javascript/charities.js"></script>
+
+  </body>
+  </html>
