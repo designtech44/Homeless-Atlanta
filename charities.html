@@ -25,6 +25,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
     </head>
 
 
@@ -98,7 +99,43 @@
         <div>&copy; 2018 The Helping Hand</div>
     </footer>
 
-        <script src="assets/javascript/charities.js"></script>
+       <script>
+         $(document).ready(function () {
+
+    jQuery.ajaxPrefilter(function (options) {
+        if (options.crossDomain && jQuery.support.cors) {
+            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+        }
+    });
+
+    $("button").on("click", function () {
+        var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Non+Profit+Organizations+in+Atlanta&key=AIzaSyBSqDhecheOfEpSgMBNwOEv_PeU_o8xmw8";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function (response) {
+            for (i = 0; i < response.results.length; i++) {
+                console.log(response);
+                var results = response.results;
+                var eventDiv = $("#charity-list");
+                var city = response.results[i].formatted_address;
+                var eventDesc = response.results[i].rating;
+                var eventName = response.results[i].name;
+                console.log(eventName);
+                console.log(city);
+                console.log(eventDesc);
+
+                $(eventDiv).append(eventDesc + " " + eventName + " " + city + "<br><br>");
+
+            }
+
+        })
+
+    });
+
+});
+       </script>
 
   </body>
   </html>
