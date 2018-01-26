@@ -110,8 +110,9 @@ section {
 }
 
 body {
-    line-height: 1;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+    font-family: Oswald, sans-serif;
 }
 
 ol,
