@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Charities- Help for the Homeless</title>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Link Reset & CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+  <!-- Navigation bar -->
+  <ul class="nav">
+
+    <div class="logo">
+      <img src="assets/images/logo.png">
+    </div>
+
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+      <a href="events.html">Events</a>
+    </li>
+    <li>
+      <a href="charities.html">Charities</a>
+    </li>
+    <li>
+      <a href="contact.html">Contact</a>
+    </li>
+  </ul>
+
+  <div class="banner">
+    <img class="banner-image" alt="banner image" src="assets/images/caring.jpg">
+  </div>
+
+
+
+
+
+  <!-- Charity Search HTML Start Here -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <strong>
+                <i class="fa  fa-list-alt"></i>Find a Charity near You:</strong>
+            </h3>
+          </div>
+          <form>
+            <div class="form-group">
+              <div id="textBox"></div>
+              <!-- <button onclick="startConverting();">
+                        <i class="fa fa-microphone"></i>
+                    </button> -->
+            </div>
+          </form>
+          <button type="button" class="btn btn-primary">search via Voice</button>
+        </div>
+      </div>
+    </div>
+    <h1 id="event-view"></h1>
+    <!-- This row will handle all of the retrieved articles -->
+    <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-primary">
+
+          <!-- Panel Heading for the retrieved articles box -->
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <strong>
+                <i class="fa fa-table"></i>List of Charities</strong>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <!-- This main panel will hold each of the resulting articles -->
+      <div class="panel-body" id="charity-list">
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer id="main-footer" class="grid">
+    <div>&copy; 2018 The Helping Hand</div>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      var r = document.getElementById('textBox');
+      function startConverting() {
+        if ('webkitSpeechRecognition' in window) {
+          var speechRecognizer = new webkitSpeechRecognition();
+          speechRecognizer.continuous = false;
+          speechRecognizer.interimResults = true;
+          speechRecognizer.lang = 'en-US';
+          speechRecognizer.start();
+
+          var finalTranscripts = '';
+
+          speechRecognizer.onresult = function (event) {
+            var interimTranscripts = '';
+            for (var i = 0; i < event.results.length; i++) {
+              var transcript = event.results[i][0].transcript;
+              transcript.replace('/n', '<br>');
+              if (event.results[i].isFinal) {
+                finalTranscripts += transcript;
+              } else {
+                interimTranscripts += transcript;
+              }
+            }
+            r.innerHTML = finalTranscripts + '<span style="color:#999">' + interimTranscripts +
+              '</span>';
+          };
+
+
+          speechRecognizer.onerror = function (event) {
+
+          }
+        } else {
+          r.innerHTML = 'browser not supported';
+        };
+      };
+
+      jQuery.ajaxPrefilter(function (options) {
+        if (options.crossDomain && jQuery.support.cors) {
+          options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+        }
+      });
+
+      $("button").on("click", function () {
+        startConverting();
+        var searchCity = $('#textBox').text();
+        console.log(searchCity);
+        getEvents();
+
+      });
+      function getEvents(userCity) {
+
+        var eventDiv = $("<div class='event'>");
+        $("#event-view").empty(eventDiv);
+
+        var searchCity = $('#textBox').text();
+        var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Non+Profit+Organizations+in+" + searchCity + "&key=AIzaSyBSqDhecheOfEpSgMBNwOEv_PeU_o8xmw8";
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).done(function (response) {
+          for (i = 0; i < response.results.length; i++) {
+            console.log(response);
+            var results = response.results;
+            var city = response.results[i].formatted_address;
+            var rating = response.results[i].rating;
+            var eventName = response.results[i].name;
+            console.log(eventName);
+            console.log(city);
+            console.log(rating);
+            if (rating !== undefined) {
+              $(eventDiv).append("<br>Event: " + eventName + "<br>City: " + city + "<br>Rating: " + rating + "<br><br>");
+              $("#event-view").append(eventDiv);
+            } else {
+              rating = "4.3";
+              $("#event-view").append(eventDiv);
+
+            }
+
+          };
+
+        });
+      };
+    });
+
+
+
+
+  </script>
+
+</body>
+
+</html>

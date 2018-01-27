@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Us- The Helping Hand</title>
+  <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <ul class="nav">
+
+    <div class="logo">
+      <img src="assets/images/logo.png">
+    </div>
+
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="charities.html">Charities</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="banner">
+    <img class="banner-image" alt="banner image" src="assets/images/caring.jpg">
+  </div>
+
+
+
+  <div class="container">
+    
+    <p class="intro">Please feel free to contact the staff at The Helping Hand with any questions or concerns you may have, or if you need further assistance deciding how to help the homeless in your community. We are always here to help!</p>
+    <div class="wrapper">
+      <div class="company-info">
+
+        <ul>
+          <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+          <li><i class="fa fa-envelope"></i> contactus@thehelpinghand.com</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Email Us</h3>
+        
+<!-- @TODO - validation -->
+        <form id="contactForm">
+          <p>
+            <label>Name</label>
+            <input type="text" name="name">
+          </p>
+          <p>
+            <label>Company</label>
+            <input type="text" name="company" id="company">
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="text" name="email" id="email">
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="text" name="phone" id= "phone">
+          </p>
+          <p class="full">
+            <label>Message</label>
+            <textarea name="message" rows="5" id="message"></textarea>
+          </p>
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer -->
+  <footer id="main-footer" class="grid">
+    <div>&copy; 2018 The Helping Hand</div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+  <script>
+    // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAIPipmQrzv-Jq-U-Uqt-3q4ghvugnGWDo",
+    authDomain: "contact-47a69.firebaseapp.com",
+    databaseURL: "https://contact-47a69.firebaseio.com",
+    projectId: "contact-47a69",
+    storageBucket: "contact-47a69.appspot.com",
+    messagingSenderId: "242452932850"
+  };
+  firebase.initializeApp(config);
+
+
+// Refernce messages collection
+var messagesRef = firebase.database().ref('messages');
+
+// Listen for form submit
+document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+// Submit form
+function submitForm(e){
+  e.preventDefault();
+
+  console.log(123);
+
+  // Get values
+  var name = getInputVal('name');
+  var company = getInputVal('company');
+  var email = getInputVal('email');
+  var phone = getInputVal('Phone');
+  var message = getInputVal('message');
+
+  // Save message
+  saveMessage(name, company, email, phone, message);
+}
+
+// Function to get form values
+function getInputVal(id){
+  return document.getElementById(id).value;
+}
+
+// Save message to firebase
+function saveMessage(name, company, email, phone, message){
+  var newMessageRef = messagesRef.push();
+  newMessageRef.set({
+    name: name,
+    company:company,
+    email:email,
+    phone:phone,
+    message:message
+  });
+}
+</script>
+</body>
+</html>
