@@ -48,13 +48,10 @@ h2.sub-title::after {
 /* Navigation */
 
 .nav {
-  background-color: #ffffff;
   color: #000000;
   list-style: none;
   text-align: right;
   padding: 20px 0 20px 0;
-  overflow: hidden;
-  display: flex;
 }
 
 .nav > li {
@@ -73,11 +70,10 @@ h2.sub-title::after {
 }
 
 .logo {
-  color: #000000;
   float: left;
   padding-left: 25px;
-  width: 150px; 
-  overflow: hidden;
+  width: 200px; 
+  height: 120px;
 }
 
 .banner {
@@ -90,7 +86,6 @@ h2.sub-title::after {
   height: 450px;
   display: block;
 }
-
 
 
 /* Section A */
